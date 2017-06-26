@@ -121,7 +121,11 @@ class Help(Scene):
     Form handling
     """
     def on_back_press(self):
-        self.state.set_scene("Main")
+        if self.state.client:
+            # Return to game if playing
+            self.state.set_scene("Game")
+        else:
+            self.state.set_scene("Main")
 
     """
     Input handling

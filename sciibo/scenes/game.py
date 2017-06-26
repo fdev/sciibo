@@ -67,6 +67,22 @@ class Game(Scene):
         self.state.client.on('leave', self.on_game_leave)
         self.state.client.on('disconnect', self.on_game_disconnect)
 
+        # When returning from the help screen, make sure turn is activated
+        if self.game.turn:
+            self.on_game_turn(self.game.get_player(self.game.turn))
+
+    def leave(self):
+        if self.state.client:
+            # Unregister networking events to prevent events firing twice
+            self.state.client.off('draw', self.on_game_draw)
+            self.state.client.off('hand', self.on_game_hand)
+            self.state.client.off('turn', self.on_game_turn)
+            self.state.client.off('play', self.on_game_play)
+            self.state.client.off('invalid', self.on_game_invalid)
+            self.state.client.off('end', self.on_game_end)
+            self.state.client.off('leave', self.on_game_leave)
+            self.state.client.off('disconnect', self.on_game_disconnect)
+
     def add_opponent(self, graphic, y, x, opponent):
         child = graphic(y, x, opponent)
         self.opponents[opponent.id] = child
@@ -220,6 +236,8 @@ class Game(Scene):
     def on_key(self, ch):
         if self.alerts.open:
             self.alerts.on_key(ch)
+        elif ch == curses.KEY_F1:
+            self.state.set_scene("Help")
         elif ch == curses.KEY_F10:
             Animation.pause()
             self.alerts.confirm('Are you sure you want to leave the game?', action='Leave', on_dismiss=self.on_alert_leave)
