@@ -188,8 +188,7 @@ class Game(Scene):
         self.update_statusbar()
 
     def on_playfield_move(self, value, source, target):
-        self.statusbar.text = 'Waiting for response from server...'
-        self.statusbar.update()
+        self.update_statusbar()
         self.state.client.play(value, source, target)
 
     def update_statusbar(self):
