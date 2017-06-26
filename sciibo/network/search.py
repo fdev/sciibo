@@ -15,7 +15,7 @@ class SearchThread(SocketThread):
         self.timeout.start()
 
         try:
-            self.sock.sendto('sciibo/1.0'.encode(), ('255.255.255.255', 5050))
+            self.sock.sendto('sciibo/1.0'.encode(), ('255.255.255.255', 5342))
 
         except:
             self.stop()
