@@ -189,7 +189,7 @@ class Game(Scene):
         else:
             self.statusbar.active = True
             if self.playfield.selected:
-                self.statusbar.text = 'Select where card should be placed (ESC to cancel).'
+                self.statusbar.text = 'Place card to play (ESC/BACKSPACE to cancel).'
             else:
                 self.statusbar.text = 'Your turn! Select a card to play.'
 

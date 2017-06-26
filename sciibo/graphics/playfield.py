@@ -311,7 +311,7 @@ class Playfield(Drawable):
             return
 
         if self.selected:
-            if ch == curses.ascii.ESC:
+            if ch in (curses.ascii.ESC, curses.KEY_BACKSPACE):
                 self.cancel_selection()
 
             elif ch == curses.KEY_LEFT:
@@ -330,7 +330,7 @@ class Playfield(Drawable):
                 if self.selection < 4 and self.selected_source == 'hand':
                     self.set_selection(self.selection + 4)
 
-            elif ch == curses.KEY_ENTER:
+            elif ch in (curses.KEY_ENTER, curses.ascii.SP):
                 self.confirm_selection()
 
         else:
@@ -342,7 +342,7 @@ class Playfield(Drawable):
                 if self.selection + 1 < len(self.selectable_sources):
                     self.set_selection(self.selection + 1)
 
-            elif ch == curses.KEY_ENTER:
+            elif ch in (curses.KEY_ENTER, curses.ascii.SP):
                 self.confirm_selection()
 
     def on_mouse(self, chain, y, x):
