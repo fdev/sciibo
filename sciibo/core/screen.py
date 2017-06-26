@@ -1,5 +1,6 @@
 from __future__ import division
 
+import os
 import curses
 import curses.ascii
 
@@ -187,6 +188,9 @@ def create_screen(fn):
     Based on curses.wrapper.
     """
     try:
+        # Make escape key more responsive
+        os.environ['ESCDELAY'] = '25'
+
         stdscr = curses.initscr()
 
         curses.noecho()
