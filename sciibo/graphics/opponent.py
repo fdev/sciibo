@@ -278,9 +278,9 @@ class LargeOpponent(Opponent):
             value, rest = pile[-1], pile[:-1]
             card = Card(1, 13 + 11 * pos, value, 'medium')
 
+            self.add_child(DiscardStack(1, 20 + 11 * pos, rest))
             self.add_child(card)
             self.discard_cards.append(card)
-            self.add_child(DiscardStack(1, 20 + 11 * pos, rest))
 
         # Hand
         for pos in range(self.player.hand):  # self.player.hand
