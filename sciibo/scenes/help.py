@@ -28,10 +28,10 @@ piles. A card may be played if it is the next in sequence on a build pile,
 or it is a "1" and one of the four build pile positions is empty.
 Scii-Bo cards ("SB") play as a wild card in the place of any other card. As
 long as there are cards that will legally play, the turn may continue. The
-object is  to play as many of the cards on the stock pile as possible.
+object is to play as many cards from the stock pile as possible.
 
 A player does not have to play any cards at all on the build piles. He may
-also have no options to do so. If a player plays out his or his entire hand,
+also have no options to do so. If a player plays out his or her entire hand,
 he must draw five more cards from the draw pile. At the end of a player's
 turn he is required to place a hand card on one of four of his own discard
 piles. If this happens to be the last card in the hand, the player may not
